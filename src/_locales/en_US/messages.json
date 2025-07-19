@@ -1,0 +1,8 @@
+{
+    "appName": {
+        "message": "Twitch Export Tweaker"
+    },
+    "appDescription": {
+        "message": "Restores default value for the privacy field into Twitch's export for Youtube"
+    }
+}

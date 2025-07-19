@@ -1,0 +1,8 @@
+{
+    "appName": {
+        "message": "Twitch Export Tweaker"
+    },
+    "appDescription": {
+        "message": "Restaura o valor padrão do campo de privacidade quando exportando da Twitch para o YouTube"
+    }
+}

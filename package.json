@@ -1,0 +1,28 @@
+{
+  "name": "jvsl.extension.chrome.twitch-export-tweaker",
+  "version": "1.0.0",
+  "description": "Twitch used to export videos to YouTube as Private by default, but now it sets them to Public. This extension automatically changes the setting back to Private, helping you maintain control over your content visibility.",
+  "keywords": [
+    "twitch",
+    "youtube",
+    "privacy",
+    "accessibility",
+    "usability",
+    "extension-chrome"
+  ],
+  "homepage": "https://github.com/TheHefty/jvsl.extension.chrome.twitch-export-tweaker#readme",
+  "bugs": {
+    "url": "https://github.com/TheHefty/jvsl.extension.chrome.twitch-export-tweaker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheHefty/jvsl.extension.chrome.twitch-export-tweaker.git"
+  },
+  "license": "MIT",
+  "author": "João Lima",
+  "type": "commonjs",
+  "scripts": {},
+  "devDependencies": {
+    "cws-publish": "^2.1.1"
+  }
+}
