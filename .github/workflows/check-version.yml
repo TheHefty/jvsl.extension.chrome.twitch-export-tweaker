@@ -1,0 +1,39 @@
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check package version
+        uses: MontyD/package-json-updated-action
+        id: version-check
+        with:
+          path: package.json
+      - name: Echo result
+        run: echo "Version updated: ${{ steps.version-check.outputs.has-updated }}"
+        
+  check-manifest-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          path: homolog
+
+      - name: Checkout base branch
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          path: master
+
+      - name: Compare manifest versions
+        run: |
+          PR_VERSION=$(jq -r .version pr-branch/src/manifest.json)
+          BASE_VERSION=$(jq -r .version base-branch/src/manifest.json)
+          echo "PR version: $PR_VERSION"
+          echo "Base version: $BASE_VERSION"
+          if [ "$PR_VERSION" = "$BASE_VERSION" ]; then
+            echo "❌ Manifest version not updated!"
+            exit 1
+          else
+            echo "✅ Manifest version updated."
+          fi
