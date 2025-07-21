@@ -1,15 +1,28 @@
+name: Version Check
+
+on:
+  push:
+    branches:
+      - homolog
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - homolog
+
 jobs:
   check-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
+
       - name: Check package version
-        uses: MontyD/package-json-updated-action
+        uses: gfellerph/package-json-version-check@v1.0.0-alpha.2
         id: version-check
         with:
           path: package.json
+
       - name: Echo result
-        run: echo "Version updated: ${{ steps.version-check.outputs.has-updated }}"
+        run: echo "Version updated"
         
   check-manifest-version:
     runs-on: ubuntu-latest
